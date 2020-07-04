@@ -1,0 +1,19 @@
+modLoader="javafml" #mandatory
+loaderVersion="[28,)" #mandatory (28 is current forge version)
+
+[[mods]] #mandatory
+
+modId="gentlefawn"
+version="${version}"
+displayName="Gentle Fawn"
+authors="Sakira"
+description='''
+Making those cottagecore vibes pop
+'''
+
+[[dependencies.gentlefawn]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"
