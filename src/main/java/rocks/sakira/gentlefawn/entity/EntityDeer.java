@@ -1,7 +1,5 @@
-package com.sakira.gentlefawn.entity;
+package rocks.sakira.gentlefawn.entity;
 
-import com.sakira.gentlefawn.init.DeerRegistry;
-import com.sakira.gentlefawn.utils.ConfigurationHandler;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -19,6 +17,8 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTables;
+import rocks.sakira.gentlefawn.register.Entities;
+import rocks.sakira.gentlefawn.utils.ConfigurationHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -149,7 +149,7 @@ public class EntityDeer extends AnimalEntity {
 
     @Override
     public EntityDeer createChild(@Nonnull AgeableEntity ageable) {
-        return DeerRegistry.DEER.create(this.world);
+        return Entities.DEER_ENTITY.get().create(this.world);
     }
 
     @Override

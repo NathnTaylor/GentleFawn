@@ -16,7 +16,7 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle'
 
-group = 'com.sakira.gentlefawn'
+group = 'rocks.sakira.gentlefawn'
 version = '1.0-SNAPSHOT'
 archivesBaseName = 'GentleFawn'
 
@@ -86,7 +86,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "com.sakira",
+            "Specification-Title": "rocks.sakira",
             "Specification-Vendor": "gentlefawn",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,

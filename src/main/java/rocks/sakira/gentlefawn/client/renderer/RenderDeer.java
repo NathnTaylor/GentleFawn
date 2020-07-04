@@ -1,10 +1,10 @@
-package com.sakira.gentlefawn.client.renderer;
+package rocks.sakira.gentlefawn.client.renderer;
 
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.sakira.gentlefawn.client.model.ModelDeer;
-import com.sakira.gentlefawn.entity.EntityDeer;
-import com.sakira.gentlefawn.gentlefawn;
+import rocks.sakira.gentlefawn.client.model.ModelDeer;
+import rocks.sakira.gentlefawn.entity.EntityDeer;
+import rocks.sakira.gentlefawn.GentleFawn;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -32,6 +32,6 @@ public class RenderDeer extends MobRenderer<EntityDeer, ModelDeer> {
     }
 
     private ResourceLocation getEntityTexture(String fileName) {
-        return new ResourceLocation(gentlefawn.MOD_ID, "textures/entity/deer/" + fileName + ".png");
+        return new ResourceLocation(GentleFawn.MOD_ID, "textures/entity/deer/" + fileName + ".png");
     }
 }

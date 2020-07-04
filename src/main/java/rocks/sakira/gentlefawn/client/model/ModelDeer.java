@@ -1,9 +1,9 @@
-package com.sakira.gentlefawn.client.model;
+package rocks.sakira.gentlefawn.client.model;
 
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.sakira.gentlefawn.entity.EntityDeer;
+import rocks.sakira.gentlefawn.entity.EntityDeer;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;

@@ -1,4 +1,4 @@
-package com.sakira.gentlefawn.utils;
+package rocks.sakira.gentlefawn.utils;
 
 import net.minecraftforge.common.BiomeDictionary;
 
