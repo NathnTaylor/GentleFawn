@@ -1,5 +1,6 @@
 package rocks.sakira.gentlefawn.register;
 
+import net.minecraft.item.Foods;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SpawnEggItem;
@@ -22,6 +23,24 @@ public class Items {
 
                     (new Item.Properties())
                             .group(ItemGroup.MISC)
+            )
+    );
+
+    public static final RegistryObject<Item> VENISON_ITEM = REGISTER.register(
+            "venison",
+
+            () -> new Item(
+                    new Item.Properties().group(ItemGroup.FOOD)
+                            .food(Foods.BEEF)
+            )
+    );
+
+    public static final RegistryObject<Item> COOKED_VENISON_ITEM = REGISTER.register(
+            "cooked_venison",
+
+            () -> new Item(
+                    new Item.Properties().group(ItemGroup.FOOD)
+                            .food(Foods.COOKED_BEEF)
             )
     );
 }

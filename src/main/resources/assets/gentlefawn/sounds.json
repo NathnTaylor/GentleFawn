@@ -1,16 +1,16 @@
 {
   "entity.deer.buck.sound": {
-    "subtitle": "gentlefawn.subtitle.buck_sound",
+    "subtitle": "subtitle.gentlefawn.buck_sound",
     "sounds": [ "gentlefawn:buck" ]
   },
 
   "entity.deer.doe.sound": {
-    "subtitle": "gentlefawn.subtitle.deer_sound",
+    "subtitle": "subtitle.gentlefawn.deer_sound",
     "sounds": [ "gentlefawn:deer" ]
   },
 
   "entity.deer.fawn.sound": {
-    "subtitle": "gentlefawn.subtitle.fawn_sound",
+    "subtitle": "subtitle.gentlefawn.fawn_sound",
     "sounds": [ "gentlefawn:fawn" ]
   }
 }

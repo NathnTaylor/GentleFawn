@@ -55,7 +55,7 @@ public class EntityDeer extends AnimalEntity {
     public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
         ILivingEntityData data = super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
 
-        if (getTextureName().equals("")) {
+        if (getTextureName().trim().equals("")) {
             if (rand.nextInt(100) <= 19) {  // 20%
                 setTextureName("buck");
             } else {
