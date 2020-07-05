@@ -17,7 +17,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 
 group = 'rocks.sakira.gentlefawn'
-version = '1.0-SNAPSHOT'
+version = '1.0'
 archivesBaseName = 'GentleFawn'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
