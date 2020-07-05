@@ -1,8 +1,0 @@
-Delete this file when there are other files in this directory.
-
-Git can't handle empty directories, so we need to add at least some kind
-of file in order to commit one.
-
-Missing files:
-* cooked_venison.png
-* venison.png
