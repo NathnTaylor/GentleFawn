@@ -1,6 +1,9 @@
 {
   "_comment": "Entity",
   "entity.gentlefawn.deer": "Deer",
-  "item.gentlefawn.deer_spawn_egg": "Deer Spawn Egg"
+  "item.gentlefawn.deer_spawn_egg": "Deer Spawn Egg",
 
+  "gentlefawn.subtitle.buck_sound": "Buck rutting",
+  "gentlefawn.subtitle.deer_sound": "Deer squeaking",
+  "gentlefawn.subtitle.fawn_sound": "Fawn bleating"
 }
