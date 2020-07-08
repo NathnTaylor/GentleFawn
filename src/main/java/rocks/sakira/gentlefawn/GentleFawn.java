@@ -2,6 +2,9 @@ package rocks.sakira.gentlefawn;
 
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.world.gen.Heightmap;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -26,6 +29,7 @@ public class GentleFawn {
 
         eventBus.addListener(this::setupCommon);
         eventBus.addListener(this::setupClient);
+        eventBus.addListener(this::setupItemColours);
 
         Entities.REGISTER.register(eventBus);
         Items.REGISTER.register(eventBus);
@@ -48,6 +52,14 @@ public class GentleFawn {
         RenderingRegistry.registerEntityRenderingHandler(
                 Entities.DEER_ENTITY.get(),
                 RenderDeer::new
+        );
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public void setupItemColours(final ColorHandlerEvent.Item event) {
+        event.getItemColors().register((itemColor, itemsIn) ->
+                Items.DEER_SPAWN_EGG.get().getColor(itemsIn),
+                Items.DEER_SPAWN_EGG.get()
         );
     }
 }
