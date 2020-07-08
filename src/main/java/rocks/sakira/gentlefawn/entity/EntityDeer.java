@@ -12,6 +12,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
@@ -161,8 +162,9 @@ public class EntityDeer extends AnimalEntity {
     @Override
     protected float getStandingEyeHeight(Pose pose, EntitySize size) { return this.isChild() ? 1.0F : 1.5F; }
 
+    @Nullable
     @Override
-    protected SoundEvent getAmbientSound() {
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
         if (this.isChild()) return fawnSound;
         if (this.getTextureName().equals("buck")) return buckSound;
 
