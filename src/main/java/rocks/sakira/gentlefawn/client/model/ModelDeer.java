@@ -22,6 +22,10 @@ public class ModelDeer extends EntityModel<EntityDeer> {
     private final ModelRenderer tail;
 
     public ModelDeer() {
+        // NOTE: If you're modifying a model using a model code generator, you should only need to
+        // overwrite the contents of this method, and (if you added or removed a ModelRenderer) the
+        // list of properties above.
+
         textureWidth = 128;
         textureHeight = 32;
 
@@ -99,6 +103,11 @@ public class ModelDeer extends EntityModel<EntityDeer> {
 
     @Override
     public void setRotationAngles(EntityDeer entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+        // NOTE: Model code generators may tell you that this method is no longer used and that we should
+        // defer to the `render` method.
+        //
+        // Model code generators are wrong.
+
         this.head.rotateAngleX = headPitch * 0.017453292F;
         this.head.rotateAngleY = netHeadYaw * 0.017453292F;
         this.body.rotateAngleX = ((float) Math.PI / 2F);
@@ -110,6 +119,10 @@ public class ModelDeer extends EntityModel<EntityDeer> {
 
     @Override
     public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+        // NOTE: Do not modify this method unless you've added more ModelRenderers and they aren't parented
+        // to any of the renderers listed here, either directly or indirectly. If you render a parent model
+        // as well as the model itself, the model will be rendered twice in different locations.
+
         head.render(matrixStack, buffer, packedLight, packedOverlay);
         neck.render(matrixStack, buffer, packedLight, packedOverlay);
         body.render(matrixStack, buffer, packedLight, packedOverlay);
@@ -121,6 +134,9 @@ public class ModelDeer extends EntityModel<EntityDeer> {
     }
 
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+        // NOTE: This auto-generated method will likely never be changed, so don't bother copying it in
+        // from generated model code.
+
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
