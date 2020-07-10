@@ -12,6 +12,12 @@ public class ModelDeer extends EntityModel<EntityDeer> {
     private final ModelRenderer neck;
     private final ModelRenderer head;
     private final ModelRenderer horns;
+    private final ModelRenderer bone;
+    private final ModelRenderer bone2;
+    private final ModelRenderer bone3;
+    private final ModelRenderer bone4;
+    private final ModelRenderer bone5;
+    private final ModelRenderer bone6;
     private final ModelRenderer earl;
     private final ModelRenderer earr;
     private final ModelRenderer body;
@@ -40,27 +46,63 @@ public class ModelDeer extends EntityModel<EntityDeer> {
         head.setTextureOffset(24, 0).addBox(-2.0F, -1.25F, -8.0F, 4.0F, 4.0F, 4.0F, 0.0F, true);
 
         horns = new ModelRenderer(this);
-        horns.setRotationPoint(3.5F, -3.25F, 0.5F);
+        horns.setRotationPoint(0.0F, -3.25F, 1.0F);
         head.addChild(horns);
-        horns.setTextureOffset(76, 23).addBox(-2.0F, -2.0F, 0.0F, 1.0F, 2.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(74, 21).addBox(-1.0F, -4.0F, 0.0F, 1.0F, 3.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(72, 20).addBox(1.0F, -6.0F, 0.0F, 1.0F, 1.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(72, 20).addBox(2.0F, -5.0F, 0.0F, 1.0F, 1.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(72, 20).addBox(-10.0F, -5.0F, 0.0F, 1.0F, 1.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(70, 18).addBox(2.0F, -8.0F, 0.0F, 1.0F, 2.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(70, 18).addBox(0.0F, -7.0F, 0.0F, 1.0F, 2.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(70, 18).addBox(-8.0F, -7.0F, 0.0F, 1.0F, 2.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(70, 18).addBox(1.0F, -10.0F, 0.0F, 1.0F, 2.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(76, 19).addBox(2.0F, -8.0F, 0.0F, 1.0F, 0.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(74, 25).addBox(-2.0F, -5.0F, 0.0F, 1.0F, 1.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(72, 23).addBox(0.0F, -5.0F, 0.0F, 1.0F, 1.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(72, 20).addBox(-9.0F, -6.0F, 0.0F, 1.0F, 1.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(70, 18).addBox(-10.0F, -8.0F, 0.0F, 1.0F, 2.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(70, 18).addBox(-9.0F, -10.0F, 0.0F, 1.0F, 2.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(74, 25).addBox(-6.0F, -5.0F, 0.0F, 1.0F, 1.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(72, 23).addBox(-8.0F, -5.0F, 0.0F, 1.0F, 1.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(74, 21).addBox(-7.0F, -4.0F, 0.0F, 1.0F, 3.0F, 0.25F, 0.0F, false);
-        horns.setTextureOffset(76, 23).addBox(-6.0F, -2.0F, 0.0F, 1.0F, 2.0F, 0.25F, 0.0F, false);
+
+        bone = new ModelRenderer(this);
+        bone.setRotationPoint(-2.0F, -2.75F, -0.5F);
+        horns.addChild(bone);
+        bone.setTextureOffset(76, 23).addBox(0.2F, 0.75F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+        bone.setTextureOffset(74, 25).addBox(0.2F, -2.25F, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, false);
+
+        bone2 = new ModelRenderer(this);
+        bone2.setRotationPoint(2.0F, -2.75F, -0.5F);
+        horns.addChild(bone2);
+        bone2.setTextureOffset(74, 25).addBox(-1.2F, -2.25F, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, false);
+        bone2.setTextureOffset(76, 23).addBox(-1.2F, 0.75F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+
+        bone3 = new ModelRenderer(this);
+        bone3.setRotationPoint(-4.1143F, -5.7857F, -0.9F);
+        horns.addChild(bone3);
+        setRotationAngle(bone3, 0.0F, -0.2618F, 0.0F);
+        bone3.setTextureOffset(70, 18).addBox(0.3904F, -5.2143F, -0.1812F, 1.0F, 1.0F, 0.0F, 0.0F, false);
+        bone3.setTextureOffset(70, 18).addBox(-0.6096F, -4.2143F, -0.1812F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+        bone3.setTextureOffset(72, 20).addBox(-0.6096F, -0.2143F, -0.1812F, 1.0F, 1.0F, 0.0F, 0.0F, false);
+        bone3.setTextureOffset(74, 18).addBox(0.3904F, -1.2143F, -0.1812F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+        bone3.setTextureOffset(72, 23).addBox(0.3904F, 0.7857F, -0.1812F, 1.0F, 1.0F, 0.0F, 0.0F, false);
+        bone3.setTextureOffset(74, 21).addBox(1.3904F, 1.7857F, -0.1812F, 1.0F, 3.0F, 0.0F, 0.0F, false);
+        bone3.setTextureOffset(70, 21).addBox(-0.6096F, 2.7857F, -0.1812F, 2.0F, 1.0F, 0.0F, 0.0F, false);
+
+        bone4 = new ModelRenderer(this);
+        bone4.setRotationPoint(4.1143F, -5.7857F, -0.9F);
+        horns.addChild(bone4);
+        setRotationAngle(bone4, 0.0F, 0.2618F, 0.0F);
+        bone4.setTextureOffset(70, 18).addBox(-1.3904F, -5.2143F, -0.1812F, 1.0F, 1.0F, 0.0F, 0.0F, false);
+        bone4.setTextureOffset(76, 19).addBox(-0.3904F, -4.2143F, -0.1812F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+        bone4.setTextureOffset(72, 20).addBox(-0.3904F, -0.2143F, -0.1812F, 1.0F, 1.0F, 0.0F, 0.0F, false);
+        bone4.setTextureOffset(74, 18).addBox(-1.3904F, -1.2143F, -0.1812F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+        bone4.setTextureOffset(72, 23).addBox(-1.3904F, 0.7857F, -0.1812F, 1.0F, 1.0F, 0.0F, 0.0F, false);
+        bone4.setTextureOffset(74, 21).addBox(-2.3904F, 1.7857F, -0.1812F, 1.0F, 3.0F, 0.0F, 0.0F, false);
+        bone4.setTextureOffset(72, 20).addBox(-1.3904F, 2.7857F, -0.1812F, 2.0F, 1.0F, 0.0F, 0.0F, false);
+
+        bone5 = new ModelRenderer(this);
+        bone5.setRotationPoint(-6.575F, -6.375F, -1.8F);
+        horns.addChild(bone5);
+        setRotationAngle(bone5, 0.0F, -0.4363F, 0.0F);
+        bone5.setTextureOffset(70, 21).addBox(0.0094F, 1.375F, -0.2958F, 2.0F, 1.0F, 0.0F, 0.0F, false);
+        bone5.setTextureOffset(70, 18).addBox(0.0094F, -2.625F, -0.2958F, 1.0F, 1.0F, 0.0F, 0.0F, false);
+        bone5.setTextureOffset(70, 18).addBox(-0.9906F, 0.375F, -0.2958F, 1.0F, 1.0F, 0.0F, 0.0F, false);
+        bone5.setTextureOffset(70, 18).addBox(1.0094F, -1.625F, -0.2958F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+
+        bone6 = new ModelRenderer(this);
+        bone6.setRotationPoint(6.3F, -6.7F, -1.8F);
+        horns.addChild(bone6);
+        setRotationAngle(bone6, 0.0F, 0.5236F, 0.0F);
+        bone6.setTextureOffset(72, 20).addBox(-1.8062F, 1.7F, -0.35F, 2.0F, 1.0F, 0.0F, 0.0F, false);
+        bone6.setTextureOffset(70, 18).addBox(-1.8062F, -1.3F, -0.35F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+        bone6.setTextureOffset(70, 18).addBox(-0.8062F, -2.3F, -0.35F, 1.0F, 1.0F, 0.0F, 0.0F, false);
+        bone6.setTextureOffset(70, 18).addBox(0.1938F, 0.7F, -0.35F, 1.0F, 1.0F, 0.0F, 0.0F, false);
+        bone6.setTextureOffset(76, 19).addBox(-1.8062F, -1.3F, -0.35F, 1.0F, 0.0F, 0.0F, 0.0F, false);
 
         earl = new ModelRenderer(this);
         earl.setRotationPoint(-3.5F, -3.25F, 0.5F);
@@ -141,5 +183,4 @@ public class ModelDeer extends EntityModel<EntityDeer> {
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
     }
-
 }
