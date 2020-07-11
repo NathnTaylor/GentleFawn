@@ -8,7 +8,7 @@ version="${version}"
 displayName="Gentle Fawn"
 authors="Sakira"
 description='''
-Making those cottagecore vibes pop
+It's literally just deer.
 '''
 
 [[dependencies.gentlefawn]]

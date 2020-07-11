@@ -1,6 +1,8 @@
 {
   "entity.gentlefawn.deer": "Deer",
 
+  "itemGroups.gentlefawn": "Gentle Fawn",
+
   "item.gentlefawn.cooked_venison": "Cooked Venison",
   "item.gentlefawn.deer_spawn_egg": "Deer Spawn Egg",
   "item.gentlefawn.venison": "Venison",

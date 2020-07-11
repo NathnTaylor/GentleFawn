@@ -1,17 +1,22 @@
 package rocks.sakira.gentlefawn.register;
 
-import net.minecraft.item.Foods;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import rocks.sakira.gentlefawn.GentleFawn;
+import rocks.sakira.gentlefawn.item.GentleFawnItemGroup;
 import rocks.sakira.gentlefawn.item.SupplierSpawnEggItem;
 
 public class Items {
     public static final DeferredRegister<Item> REGISTER = new DeferredRegister<>(ForgeRegistries.ITEMS, GentleFawn.MOD_ID);
+
+    private static final ItemGroup GROUP = new GentleFawnItemGroup("gentlefawn") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(DEER_SPAWN_EGG.get());
+        }
+    };
 
     public static final RegistryObject<SpawnEggItem> DEER_SPAWN_EGG = REGISTER.register(
             "deer_spawn_egg",
@@ -22,7 +27,7 @@ public class Items {
                     0xF6F3EF,
 
                     (new Item.Properties())
-                            .group(ItemGroup.MISC)
+                            .group(GROUP)
             )
     );
 
@@ -30,7 +35,8 @@ public class Items {
             "venison",
 
             () -> new Item(
-                    new Item.Properties().group(ItemGroup.FOOD)
+                    new Item.Properties()
+                            .group(GROUP)
                             .food(Foods.BEEF)
             )
     );
@@ -39,7 +45,8 @@ public class Items {
             "cooked_venison",
 
             () -> new Item(
-                    new Item.Properties().group(ItemGroup.FOOD)
+                    new Item.Properties()
+                            .group(GROUP)
                             .food(Foods.COOKED_BEEF)
             )
     );
