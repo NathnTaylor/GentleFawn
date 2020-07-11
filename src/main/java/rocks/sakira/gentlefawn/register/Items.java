@@ -9,7 +9,7 @@ import rocks.sakira.gentlefawn.item.GentleFawnItemGroup;
 import rocks.sakira.gentlefawn.item.SupplierSpawnEggItem;
 
 public class Items {
-    public static final DeferredRegister<Item> REGISTER = new DeferredRegister<>(ForgeRegistries.ITEMS, GentleFawn.MOD_ID);
+    public static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS, GentleFawn.MOD_ID);
 
     private static final ItemGroup GROUP = new GentleFawnItemGroup("gentlefawn") {
         @Override

@@ -9,7 +9,7 @@ import rocks.sakira.gentlefawn.GentleFawn;
 import rocks.sakira.gentlefawn.entity.EntityDeer;
 
 public class Entities {
-    public static final DeferredRegister<EntityType<?>> REGISTER = new DeferredRegister<>(ForgeRegistries.ENTITIES, GentleFawn.MOD_ID);
+    public static final DeferredRegister<EntityType<?>> REGISTER = DeferredRegister.create(ForgeRegistries.ENTITIES, GentleFawn.MOD_ID);
 
     public static final RegistryObject<EntityType<EntityDeer>> DEER_ENTITY = REGISTER.register(
             "deer",
