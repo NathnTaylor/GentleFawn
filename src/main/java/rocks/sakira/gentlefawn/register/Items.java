@@ -14,7 +14,7 @@ public class Items {
     private static final ItemGroup GROUP = new GentleFawnItemGroup("gentlefawn") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(DEER_SPAWN_EGG.get());
+            return new ItemStack(DOE_HEAD_ITEM.get());
         }
     };
 
