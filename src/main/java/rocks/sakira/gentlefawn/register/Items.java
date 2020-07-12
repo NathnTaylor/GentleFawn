@@ -50,4 +50,30 @@ public class Items {
                             .food(Foods.COOKED_BEEF)
             )
     );
+
+    public static final RegistryObject<Item> DOE_HEAD_ITEM = REGISTER.register(
+            "doe_head",
+
+            () -> new WallOrFloorItem(
+                    Blocks.DOE_HEAD.get(),
+                    Blocks.DOE_WALL_HEAD.get(),
+
+                    new Item.Properties()
+                            .group(GROUP)
+                            .rarity(Rarity.UNCOMMON)
+            )
+    );
+
+    public static final RegistryObject<Item> BUCK_HEAD_ITEM = REGISTER.register(
+            "buck_head",
+
+            () -> new WallOrFloorItem(
+                    Blocks.BUCK_HEAD.get(),
+                    Blocks.BUCK_WALL_HEAD.get(),
+
+                    new Item.Properties()
+                            .group(GROUP)
+                            .rarity(Rarity.UNCOMMON)
+            )
+    );
 }

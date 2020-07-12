@@ -1,7 +1,9 @@
 {
   "entity.gentlefawn.deer": "Deer",
+  "itemGroup.gentlefawn": "Gentle Fawn",
 
-  "itemGroups.gentlefawn": "Gentle Fawn",
+  "block.gentlefawn.buck_head": "Buck Head",
+  "block.gentlefawn.doe_head": "Doe Head",
 
   "item.gentlefawn.cooked_venison": "Cooked Venison",
   "item.gentlefawn.deer_spawn_egg": "Deer Spawn Egg",

@@ -82,7 +82,21 @@ public class EntityDeer extends AnimalEntity {
     }
 
     public String getTextureName() {
-        return dataManager.get(TYPE);
+        String textureName = dataManager.get(TYPE);
+
+        if (textureName.isEmpty()) {
+            if (rand.nextInt(100) <= 19) {  // 20%
+                setTextureName("buck");
+
+                return "buck";
+            } else {
+                setTextureName("doe");
+
+                return "doe";
+            }
+        }
+
+        return textureName;
     }
 
     public void setTextureName(String name) {
@@ -169,5 +183,26 @@ public class EntityDeer extends AnimalEntity {
         if (this.getTextureName().equals("buck")) return buckSound;
 
         return doeSound;
+    }
+
+    @Override
+    public void onDeath(DamageSource cause) {
+        Entity damageSource = cause.getImmediateSource();
+
+        if (damageSource != null) {
+            if (damageSource.getType().equals(EntityType.SPECTRAL_ARROW)) {
+                if (damageSource.world.rand.nextInt(4) == 0) {
+                    if (! this.isChild()) {
+                        if (this.getTextureName() == "buck") {
+                            this.entityDropItem(new ItemStack(rocks.sakira.gentlefawn.register.Items.BUCK_HEAD_ITEM.get(), 1));
+                        } else {
+                            this.entityDropItem(new ItemStack(rocks.sakira.gentlefawn.register.Items.DOE_HEAD_ITEM.get(), 1));
+                        }
+                    }
+                }
+            }
+        }
+
+        super.onDeath(cause);
     }
 }
