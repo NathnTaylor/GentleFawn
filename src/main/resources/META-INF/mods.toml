@@ -1,8 +1,7 @@
-modLoader="javafml" #mandatory
-loaderVersion="[28,)" #mandatory (28 is current forge version)
+modLoader="javafml"
+loaderVersion="[31,)"
 
-[[mods]] #mandatory
-
+[[mods]]
 modId="gentlefawn"
 version="${file.jarVersion}"
 displayName="Gentle Fawn"

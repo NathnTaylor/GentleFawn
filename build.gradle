@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
 
         maven {
-            name = "forge"
+            name = 'forge'
             url = 'https://files.minecraftforge.net/maven'
         }
     }
@@ -16,8 +16,8 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle'
 
-group = 'rocks.sakira.gentlefawn'
 version = '1.0'
+group = 'rocks.sakira.gentlefawn'
 archivesBaseName = 'GentleFawn'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
@@ -27,7 +27,7 @@ minecraft {
 
     runs {
         client {
-            workingDirectory project.file('run').canonicalPath
+            workingDirectory project.file('run')
 
             // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
@@ -36,14 +36,14 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                gentlefawn {
+                examplemod {
                     source sourceSets.main
                 }
             }
         }
 
         server {
-            workingDirectory project.file('run').canonicalPath
+            workingDirectory project.file('run')
 
             // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
@@ -52,14 +52,14 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                gentlefawn {
+                examplemod {
                     source sourceSets.main
                 }
             }
         }
 
         data {
-            workingDirectory project.file('run').canonicalPath
+            workingDirectory project.file('run')
 
             // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
@@ -67,10 +67,10 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'gentlefawn', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/')
 
             mods {
-                gentlefawn {
+                examplemod {
                     source sourceSets.main
                 }
             }
@@ -84,14 +84,16 @@ dependencies {
 
 // Example for how to get properties into the manifest for reading by the runtime..
 jar {
+    classifier 'MC1.15.2'
+
     manifest {
         attributes([
-            "Specification-Title": "rocks.sakira",
-            "Specification-Vendor": "gentlefawn",
+            "Specification-Title": "gentlefawn",
+            "Specification-Vendor": "sakira",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"gentlefawn",
+            "Implementation-Vendor": "sakira",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
@@ -99,7 +101,3 @@ jar {
 
 
 jar.finalizedBy('reobfJar')
-
-repositories {
-    mavenCentral()
-}
