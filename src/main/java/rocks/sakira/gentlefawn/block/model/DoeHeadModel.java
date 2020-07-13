@@ -45,6 +45,11 @@ public class DoeHeadModel extends GenericHeadModel {
         matrixStackIn.pop();
     }
 
+    public void func_225603_a_(float p_225603_1_, float p_225603_2_, float p_225603_3_) {
+        this.head.rotateAngleY = (p_225603_2_ + 180) * ((float) Math.PI / 180F);
+        this.head.rotateAngleX = p_225603_3_ * ((float) Math.PI / 180F);
+    }
+
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
