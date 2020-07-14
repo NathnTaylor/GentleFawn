@@ -2,9 +2,9 @@ package rocks.sakira.gentlefawn.block.model;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import net.minecraft.client.renderer.Quaternion;
 import net.minecraft.client.renderer.entity.model.GenericHeadModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.util.math.vector.Quaternion;
 
 public class DoeHeadModel extends GenericHeadModel {
     private final ModelRenderer head;

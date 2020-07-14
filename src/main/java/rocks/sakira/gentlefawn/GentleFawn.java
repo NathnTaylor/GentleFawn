@@ -40,6 +40,7 @@ public class GentleFawn {
         final IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         eventBus.register(this);
+        eventBus.register(Entities.class);
 
         Blocks.REGISTER.register(eventBus);
         Entities.REGISTER.register(eventBus);

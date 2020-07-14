@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -18,7 +19,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootTables;
 import rocks.sakira.gentlefawn.GentleFawn;
 import rocks.sakira.gentlefawn.register.Entities;
 import rocks.sakira.gentlefawn.utils.ConfigurationHandler;
@@ -119,13 +119,6 @@ public class EntityDeer extends AnimalEntity {
     @Override
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return super.canSpawn(worldIn, spawnReasonIn);
-    }
-
-    @Override
-    protected void registerAttributes() {
-        super.registerAttributes();
-        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(8.0D);
-        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.16D);
     }
 
     @Override
