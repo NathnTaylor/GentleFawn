@@ -1,5 +1,5 @@
 {
-  "_comment": "This file contains our only Spanish dialect - the others need to be updated with it",
+  "_comment": "This file is based on es_ar.json and should be updated with it",
   "_credit": "Translations provided by Destroyerr888 and sakiraart",
 
   "itemGroup.gentlefawn": "Gentle Fawn",
