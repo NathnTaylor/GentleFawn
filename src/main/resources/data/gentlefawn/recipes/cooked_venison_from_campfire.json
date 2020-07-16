@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "gentlefawn:venison"
+  },
+  "result": "gentlefawn:cooked_venison",
+  "experience": 1.0,
+  "cookingtime": 600
+}
