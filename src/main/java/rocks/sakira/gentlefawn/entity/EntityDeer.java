@@ -151,9 +151,6 @@ public class EntityDeer extends AnimalEntity {
     }
 
     @Override
-    public boolean canBreatheUnderwater() { return true; }
-
-    @Override
     public boolean isBreedingItem(@Nonnull ItemStack stack) { return !stack.isEmpty() && TEMPTATION_ITEMS.test(stack); }
 
     @Override
