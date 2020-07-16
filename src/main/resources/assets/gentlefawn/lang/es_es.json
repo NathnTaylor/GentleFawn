@@ -1,0 +1,17 @@
+{
+  "_credit": "Translations provided by Destroyerr888",
+
+  "entity.gentlefawn.deer": "Venado",
+  "itemGroup.gentlefawn": "Gentle Fawn",
+
+  "block.gentlefawn.buck_head": "Cabeza de venado macho",
+  "block.gentlefawn.doe_head": "Cabeza de venado hembra",
+
+  "item.gentlefawn.cooked_venison": "Carne de venado cocinada",
+  "item.gentlefawn.deer_spawn_egg": "Generar venado",
+  "item.gentlefawn.venison": "Carne de venado",
+
+  "subtitle.gentlefawn.buck_sound": "Venado macho en celo",
+  "subtitle.gentlefawn.deer_sound": "Venado chirriando",
+  "subtitle.gentlefawn.fawn_sound": "Balido de cría de venado"
+}
