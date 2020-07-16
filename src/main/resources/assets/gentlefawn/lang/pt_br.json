@@ -1,14 +1,12 @@
 {
-  "_credit": "Translations provided by Adagha",
-
   "itemGroup.gentlefawn": "Gentle Fawn",
 
   "entity.gentlefawn.deer": "Veado",
   "item.gentlefawn.deer_spawn_egg": "Ovo gerador de veado",
 
-  "subtitle.gentlefawn.buck_sound": "Veado no cio",
-  "subtitle.gentlefawn.deer_sound": "Veado berrando",
-  "subtitle.gentlefawn.fawn_sound": "Filhote de veado rugindo",
+  "subtitle.gentlefawn.buck_sound": "Veado ferido",
+  "subtitle.gentlefawn.deer_sound": "Corça ferida",
+  "subtitle.gentlefawn.fawn_sound": "Filhote de veado ferido",
 
   "block.gentlefawn.buck_head": "Cabeça de veado",
   "block.gentlefawn.doe_head": "Cabeça de corça",
