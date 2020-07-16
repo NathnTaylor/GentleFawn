@@ -105,12 +105,13 @@ public class EntityDeer extends AnimalEntity {
 
     @Override
     protected void registerGoals() {
+        this.goalSelector.addGoal(0, new SwimGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.5D));
         this.goalSelector.addGoal(2, new BreedGoal(this, 0.8D));
         this.goalSelector.addGoal(4, new AvoidEntityGoal(this, WolfEntity.class, 6.0F, 1.0D, 1.2D));
         this.goalSelector.addGoal(5, new TemptGoal(this, 1.0D, false, TEMPTATION_ITEMS));
         this.goalSelector.addGoal(6, new FollowParentGoal(this, 1.1D));
-        this.goalSelector.addGoal(7, new RandomWalkingGoal(this, 1.0D));
+        this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
         this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.addGoal(9, new LookAtGoal(this, EntityDeer.class, 6.0F));
         this.goalSelector.addGoal(10, new LookRandomlyGoal(this));
@@ -141,9 +142,6 @@ public class EntityDeer extends AnimalEntity {
         }
         return 0;
     }
-
-    @Override
-    public boolean canBreatheUnderwater() { return true; }
 
     @Override
     public boolean isBreedingItem(@Nonnull ItemStack stack) { return !stack.isEmpty() && TEMPTATION_ITEMS.test(stack); }
