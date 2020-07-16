@@ -1,0 +1,16 @@
+{
+  "itemGroup.gentlefawn": "Gentle Fawn",
+
+  "entity.gentlefawn.deer": "Venado",
+  "item.gentlefawn.deer_spawn_egg": "Generar venado",
+
+  "subtitle.gentlefawn.buck_sound": "Venado herido",
+  "subtitle.gentlefawn.deer_sound": "Venada herida",
+  "subtitle.gentlefawn.fawn_sound": "Cervatillo herido",
+  
+  "block.gentlefawn.buck_head": "Cabeza de venado",
+  "block.gentlefawn.doe_head": "Cabeza de venada",
+  
+  "item.gentlefawn.venison": "Venado crudo",
+  "item.gentlefawn.cooked_venison": "Venado cocinado"
+}
