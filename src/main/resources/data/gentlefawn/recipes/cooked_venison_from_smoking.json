@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "gentlefawn:venison"
+  },
+  "result": "gentlefawn:cooked_venison",
+  "experience": 1.0,
+  "cookingtime": 100
+}
