@@ -8,20 +8,18 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import rocks.sakira.gentlefawn.GentleFawn;
 import rocks.sakira.gentlefawn.register.Entities;
-import rocks.sakira.gentlefawn.utils.ConfigurationHandler;
+import rocks.sakira.gentlefawn.register.SoundEvents;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -34,10 +32,6 @@ public class EntityDeer extends AnimalEntity {
     private static final Random rand = new Random();
 
     private static DataParameter<String> TYPE = EntityDataManager.createKey(EntityDeer.class, DataSerializers.STRING);
-
-    private static SoundEvent buckSound = new SoundEvent(new ResourceLocation(GentleFawn.MOD_ID, "entity.deer.buck.sound"));
-    private static SoundEvent doeSound = new SoundEvent(new ResourceLocation(GentleFawn.MOD_ID, "entity.deer.doe.sound"));
-    private static SoundEvent fawnSound = new SoundEvent(new ResourceLocation(GentleFawn.MOD_ID, "entity.deer.fawn.sound"));
 
     public EntityDeer(EntityType<? extends EntityDeer> deer, World world) {
         super(deer, world);
@@ -136,15 +130,9 @@ public class EntityDeer extends AnimalEntity {
     }
 
     @Override
-    protected int getExperiencePoints(PlayerEntity player) {
-        if (ConfigurationHandler.GENERAL.dropExp.get()) {
-            return super.getExperiencePoints(player);
-        }
-        return 0;
+    public boolean isBreedingItem(@Nonnull ItemStack stack) {
+        return !stack.isEmpty() && TEMPTATION_ITEMS.test(stack);
     }
-
-    @Override
-    public boolean isBreedingItem(@Nonnull ItemStack stack) { return !stack.isEmpty() && TEMPTATION_ITEMS.test(stack); }
 
     @Override
     public EntitySize getSize(Pose poseIn) {
@@ -154,26 +142,22 @@ public class EntityDeer extends AnimalEntity {
     }
 
     @Override
-    @Nonnull
-    public ResourceLocation getLootTable() {
-        return ConfigurationHandler.GENERAL.dropBeef.get() ? super.getLootTable() : LootTables.EMPTY;
-    }
-
-    @Override
     public EntityDeer createChild(@Nonnull AgeableEntity ageable) {
         return Entities.DEER_ENTITY.get().create(this.world);
     }
 
     @Override
-    protected float getStandingEyeHeight(Pose pose, EntitySize size) { return this.isChild() ? 1.0F : 1.5F; }
+    protected float getStandingEyeHeight(Pose pose, EntitySize size) {
+        return this.isChild() ? 1.0F : 1.5F;
+    }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        if (this.isChild()) return fawnSound;
-        if (this.getTextureName().equals("buck")) return buckSound;
+        if (this.isChild()) return SoundEvents.FAWN_SOUND.get();
+        if (this.getTextureName().equals("buck")) return SoundEvents.BUCK_SOUND.get();
 
-        return doeSound;
+        return SoundEvents.DOE_SOUND.get();
     }
 
     @Override
@@ -183,7 +167,7 @@ public class EntityDeer extends AnimalEntity {
         if (damageSource != null) {
             if (damageSource.getType().equals(EntityType.SPECTRAL_ARROW)) {
                 if (damageSource.world.rand.nextInt(4) == 0) {
-                    if (! this.isChild()) {
+                    if (!this.isChild()) {
                         if (this.getTextureName() == "buck") {
                             this.entityDropItem(new ItemStack(rocks.sakira.gentlefawn.register.Items.BUCK_HEAD_ITEM.get(), 1));
                         } else {
