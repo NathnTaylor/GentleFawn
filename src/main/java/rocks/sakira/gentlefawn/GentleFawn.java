@@ -13,6 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -25,6 +26,7 @@ import rocks.sakira.gentlefawn.init.DeerRegistry;
 import rocks.sakira.gentlefawn.register.Blocks;
 import rocks.sakira.gentlefawn.register.Entities;
 import rocks.sakira.gentlefawn.register.Items;
+import rocks.sakira.gentlefawn.register.SoundEvents;
 import rocks.sakira.gentlefawn.utils.ConfigurationHandler;
 
 import java.lang.reflect.Field;
@@ -44,6 +46,7 @@ public class GentleFawn {
         Blocks.REGISTER.register(eventBus);
         Entities.REGISTER.register(eventBus);
         Items.REGISTER.register(eventBus);
+        SoundEvents.REGISTER.register(eventBus);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigurationHandler.spec);
     }
@@ -59,21 +62,10 @@ public class GentleFawn {
 
         DeerRegistry.addSpawn();
 
-        // This block is pretty hacky, but I can't think of a better way to do this.
-        // This is likely to break between major Forge versions.
-        Field f;
+        // A less hacky way of getting the field. This should survive major Forge updates.
+        Field f = ObfuscationReflectionHelper.findField(TileEntityType.class, "field_223046_I");
 
         try {
-            // Attempt to grab a reference to the validBlocks set and make it available.
-            f = TileEntityType.SKULL.getClass().getDeclaredField("field_223046_I");
-        } catch (NoSuchFieldException e) {
-            // We may be in a development environment
-            f = TileEntityType.SKULL.getClass().getDeclaredField("validBlocks");
-        }
-
-        try {
-            f.setAccessible(true);  // Bypass `private` access modifier.
-
             // Create a list based on the current allowed blocks set, so we can add ours.
             Set<Block> allowedBlocks = (Set<Block>) f.get(TileEntityType.SKULL);
             ArrayList<Block> blocks = new ArrayList<>(allowedBlocks);
