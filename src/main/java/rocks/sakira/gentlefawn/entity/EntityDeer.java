@@ -14,6 +14,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
@@ -158,6 +159,12 @@ public class EntityDeer extends AnimalEntity {
         if (this.getTextureName().equals("buck")) return SoundEvents.BUCK_SOUND.get();
 
         return SoundEvents.DOE_SOUND.get();
+    }
+
+
+    @Override
+    public ItemStack getPickedResult(RayTraceResult target) {
+        return new ItemStack(rocks.sakira.gentlefawn.register.Items.DEER_SPAWN_EGG.get());
     }
 
     @Override
