@@ -16,7 +16,7 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.0.4'
+version = '1.0.5'
 group = 'rocks.sakira.gentlefawn'
 archivesBaseName = 'GentleFawn'
 
