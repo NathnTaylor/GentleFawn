@@ -2,6 +2,7 @@ package rocks.sakira.gentlefawn.entity;
 
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -32,7 +33,7 @@ public class EntityDeer extends AnimalEntity {
     private boolean moveHead = false;
     private static final Random rand = new Random();
 
-    private static DataParameter<String> TYPE = EntityDataManager.createKey(EntityDeer.class, DataSerializers.STRING);
+    private static final DataParameter<String> TYPE = EntityDataManager.createKey(EntityDeer.class, DataSerializers.STRING);
 
     public EntityDeer(EntityType<? extends EntityDeer> deer, World world) {
         super(deer, world);
@@ -48,7 +49,7 @@ public class EntityDeer extends AnimalEntity {
     }
 
     @Override
-    public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
+    public ILivingEntityData onInitialSpawn(@Nonnull IWorld worldIn, @Nonnull DifficultyInstance difficultyIn, @Nonnull SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
         ILivingEntityData data = super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
 
         if (dataManager.isEmpty() || getTextureName().trim().isEmpty()) {
@@ -63,14 +64,14 @@ public class EntityDeer extends AnimalEntity {
     }
 
     @Override
-    public void writeAdditional(CompoundNBT compound) {
+    public void writeAdditional(@Nonnull CompoundNBT compound) {
         super.writeAdditional(compound);
 
         compound.putString("Type", dataManager.get(TYPE));
     }
 
     @Override
-    public void readAdditional(CompoundNBT compound) {
+    public void readAdditional(@Nonnull CompoundNBT compound) {
         super.readAdditional(compound);
 
         dataManager.set(TYPE, compound.getString("Type"));
@@ -113,7 +114,7 @@ public class EntityDeer extends AnimalEntity {
     }
 
     @Override
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+    public boolean canSpawn(@Nonnull IWorld worldIn, @Nonnull SpawnReason spawnReasonIn) {
         return super.canSpawn(worldIn, spawnReasonIn);
     }
 
@@ -135,8 +136,8 @@ public class EntityDeer extends AnimalEntity {
         return !stack.isEmpty() && TEMPTATION_ITEMS.test(stack);
     }
 
-    @Override
-    public EntitySize getSize(Pose poseIn) {
+    @Override @Nonnull
+    public EntitySize getSize(@Nonnull Pose poseIn) {
         EntitySize size = super.getSize(poseIn);
 
         return this.isChild() ? size.scale(0.66F) : size;
@@ -148,13 +149,13 @@ public class EntityDeer extends AnimalEntity {
     }
 
     @Override
-    protected float getStandingEyeHeight(Pose pose, EntitySize size) {
+    protected float getStandingEyeHeight(@Nonnull Pose pose, @Nonnull EntitySize size) {
         return this.isChild() ? 1.0F : 1.5F;
     }
 
     @Nullable
     @Override
-    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
+    protected SoundEvent getHurtSound(@Nonnull DamageSource damageSourceIn) {
         if (this.isChild()) return SoundEvents.FAWN_SOUND.get();
         if (this.getTextureName().equals("buck")) return SoundEvents.BUCK_SOUND.get();
 
@@ -167,24 +168,38 @@ public class EntityDeer extends AnimalEntity {
         return new ItemStack(rocks.sakira.gentlefawn.register.Items.DEER_SPAWN_EGG.get());
     }
 
+    public void dropHead() {
+        if (this.getTextureName().equals("buck")) {
+            this.entityDropItem(new ItemStack(rocks.sakira.gentlefawn.register.Items.BUCK_HEAD_ITEM.get(), 1));
+        } else {
+            this.entityDropItem(new ItemStack(rocks.sakira.gentlefawn.register.Items.DOE_HEAD_ITEM.get(), 1));
+        }
+    }
+
     @Override
-    public void onDeath(DamageSource cause) {
+    public void onDeath(@Nonnull DamageSource cause) {
+        super.onDeath(cause);
+
         Entity damageSource = cause.getImmediateSource();
 
-        if (damageSource != null) {
+        if (damageSource != null && !this.isChild()) {
+            if (damageSource.getType().equals(EntityType.CREEPER)) {
+                // Mobs always drop heads when killed by a charged creeper
+                CreeperEntity creeper = (CreeperEntity) damageSource;
+
+                if (creeper.isCharged() && cause.isExplosion()) {
+                    dropHead();
+
+                    return;
+                }
+            }
+
             if (damageSource.getType().equals(EntityType.SPECTRAL_ARROW)) {
+                // Give a lowered chance of obtaining the head when a spectral arrow is used
                 if (damageSource.world.rand.nextInt(4) == 0) {
-                    if (!this.isChild()) {
-                        if (this.getTextureName() == "buck") {
-                            this.entityDropItem(new ItemStack(rocks.sakira.gentlefawn.register.Items.BUCK_HEAD_ITEM.get(), 1));
-                        } else {
-                            this.entityDropItem(new ItemStack(rocks.sakira.gentlefawn.register.Items.DOE_HEAD_ITEM.get(), 1));
-                        }
-                    }
+                    dropHead();
                 }
             }
         }
-
-        super.onDeath(cause);
     }
 }
