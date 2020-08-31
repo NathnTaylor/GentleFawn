@@ -1,0 +1,18 @@
+{
+  "_credit": "Translations provided by 煎餅",
+
+  "itemGroup.gentlefawn": "Gentle Fawn",
+
+  "entity.gentlefawn.deer": "鹿",
+  "item.gentlefawn.deer_spawn_egg": "鹿生怪蛋",
+
+  "subtitle.gentlefawn.buck_sound": "公鹿受傷",
+  "subtitle.gentlefawn.deer_sound": "母鹿受傷",
+  "subtitle.gentlefawn.fawn_sound": "小鹿受傷",
+
+  "block.gentlefawn.buck_head": "公鹿頭壁飾",
+  "block.gentlefawn.doe_head": "母鹿頭壁飾",
+
+  "item.gentlefawn.venison": "生鹿肉",
+  "item.gentlefawn.cooked_venison": "烤鹿肉"
+}

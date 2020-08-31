@@ -1,0 +1,18 @@
+{
+  "_credit": "Translations provided by leocth",
+
+  "itemGroup.gentlefawn": "Gentle Fawn",
+
+  "entity.gentlefawn.deer": "鹿",
+  "item.gentlefawn.deer_spawn_egg": "鹿刷怪蛋",
+
+  "subtitle.gentlefawn.buck_sound": "公鹿：发情时的叫声",
+  "subtitle.gentlefawn.deer_sound": "母鹿：吱吱叫",
+  "subtitle.gentlefawn.fawn_sound": "鹿仔：咩咩叫",
+
+  "block.gentlefawn.buck_head": "公鹿头",
+  "block.gentlefawn.doe_head": "母鹿头",
+
+  "item.gentlefawn.venison": "鹿肉",
+  "item.gentlefawn.cooked_venison": "熟鹿肉"
+}

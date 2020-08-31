@@ -1,0 +1,18 @@
+{
+  "_credit": "Translations provided by Manimanocas",
+
+  "itemGroup.gentlefawn": "Gentle Fawn",
+
+  "entity.gentlefawn.deer": "Veado",
+  "item.gentlefawn.deer_spawn_egg": "Ovo de Invocação de Veado",
+
+  "subtitle.gentlefawn.buck_sound": "O Cervo berra",
+  "subtitle.gentlefawn.deer_sound": "O Alce chia",
+  "subtitle.gentlefawn.fawn_sound": "O Fulvo bale",
+
+  "block.gentlefawn.buck_head": "Cabeça de Cervo",
+  "block.gentlefawn.doe_head": "Cabeça de Corça",
+
+  "item.gentlefawn.venison": "Carne de Veado",
+  "item.gentlefawn.cooked_venison": "Carne de Veado Assada"
+}
