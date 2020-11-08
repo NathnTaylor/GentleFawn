@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "gentlefawn",
+  "version": "${version}",
+
+  "name": "GentleFawn",
+  "description": "It's literally just deer.",
+
+  "authors": [
+    "sakiraart",
+    "gdude2002"
+  ],
+
+  "contact": {
+    "homepage": "https://github.com/FaeCraft/GentleFawn",
+    "sources": "https://github.com/FaeCraft/GentleFawn"
+  },
+
+  "icon": "assets/gentlefawn/icon.png",
+
+  "environment": "*",
+
+  "entrypoints": {
+    "client": [
+      {
+        "value": "io.github.faecraft.gentlefawn.Client::INSTANCE"
+      }
+    ],
+    "main": [
+      {
+        "value": "io.github.faecraft.gentlefawn.Common::INSTANCE"
+      }
+    ]
+  },
+
+  "mixins": [
+    "gentlefawn.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.8.7",
+    "fabric": "*",
+    "fabric-language-kotlin": "*",
+    "minecraft": ">=1.16.3"
+  },
+
+  "suggests": {
+
+  }
+}

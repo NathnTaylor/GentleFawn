@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "io.github.faecraft.gentlefawn.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "BlockEntityTypeAccessor",
+    "BlockEntityTypeBuilderAccessor",
+    "BlockEntityTypeMixin",
+    "SpawnRestrictionMixin"
+  ],
+  "client": [
+    "SkullBlockEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
