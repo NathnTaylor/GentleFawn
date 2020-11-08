@@ -23,12 +23,7 @@ object Common : ModInitializer {
         Blocks.register()
         Entities.registerAttributes()
 
-        registerSkullTypes()
         registerSpawnRestrictions()
-    }
-
-    fun registerSkullTypes() {
-        val skull = BlockEntityTypeAccessor.getSkull()
     }
 
     fun registerSpawnRestrictions() {

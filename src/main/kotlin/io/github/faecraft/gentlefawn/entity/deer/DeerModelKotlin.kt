@@ -7,7 +7,7 @@ import net.minecraft.client.render.entity.model.EntityModel
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.util.math.MathHelper
 
-class DeerModel() : EntityModel<DeerEntity>() {
+class DeerModelKotlin() : EntityModel<DeerEntity>() {
     var horns = ModelPart(this)
     var head = ModelPart(this)
     var neck = ModelPart(this)

@@ -6,7 +6,7 @@ import net.minecraft.client.render.entity.model.SkullEntityModel
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.util.math.Quaternion
 
-class DoeHeadModel() : SkullEntityModel() {
+class DoeHeadModelKotlin() : SkullEntityModel() {
     private val head = ModelPart(this)
     private val ear1 = ModelPart(this)
     private val ear2 = ModelPart(this)

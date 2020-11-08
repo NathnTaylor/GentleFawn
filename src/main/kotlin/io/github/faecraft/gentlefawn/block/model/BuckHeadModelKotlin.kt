@@ -6,7 +6,7 @@ import net.minecraft.client.render.entity.model.SkullEntityModel
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.util.math.Quaternion
 
-class BuckHeadModel() : SkullEntityModel() {
+class BuckHeadModelKotlin() : SkullEntityModel() {
     private val head = ModelPart(this)
     private val horns = ModelPart(this)
 
