@@ -68,9 +68,9 @@ public abstract class DefaultBiomeCreatorMixin {
         return builder.spawn(
                 SpawnGroup.AMBIENT, new SpawnSettings.SpawnEntry(
                         Entities.INSTANCE.getDEER(),
-                        40,
-                        3,
-                        7
+                        8,
+                        4,
+                        4
                 )
         );
     }
