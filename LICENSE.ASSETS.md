@@ -10,7 +10,7 @@ A license exception is granted to CurseForge and GitHub,
 for the purposes of distribution and to meet their licensing 
 requirements and terms of service.
 
-###Additional Definitions.
+### Additional Definitions. 
 
 "Assets" is any work included within the 'gentlefawn/entity' directory,
 the 'gentlefawn/block' directory and the 'resources/assets/gentlefawn'. 
