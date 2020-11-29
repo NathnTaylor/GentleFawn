@@ -12,6 +12,6 @@ requirements and terms of service.
 
 ###Additional Definitions.
 
-"Assets" is any work included within the 'resouces/assets' directory
-AND the 'client/model' directory. An exception is granted 
-to the files within the 'resources/assets/lang' directory.
+"Assets" is any work included within the 'gentlefawn/entity' directory,
+the 'gentlefawn/block' directory and the 'resources/assets/gentlefawn'. 
+An exception is granted to the files within the 'resources/assets/gentlefawn/lang' directory.
