@@ -99,19 +99,21 @@ class DeerEntity(entityType: EntityType<out AnimalEntity>, world: World?) : Anim
         ItemStack(io.github.faecraft.gentlefawn.register.Items.DOE_HEAD, 1)
     }
 
-    override fun onDeath(source: DamageSource) {
-        super.onDeath(source)
+    override fun dropEquipment(source: DamageSource, lootingMultiplier: Int, allowDrops: Boolean) {
+        super.dropEquipment(source, lootingMultiplier, allowDrops)
 
-        val entity = source.source
+        val attacker = source.attacker
 
-        if (entity != null && !this.isBaby) {
-            if (entity.type == EntityType.CREEPER) {
-                val creeper = entity as CreeperEntity
+        if (attacker is CreeperEntity) {
+            if (attacker.shouldDropHead()) {
+                attacker.onHeadDropped()
 
-                if (creeper.shouldRenderOverlay() && source.isExplosive) {  // That's how we know it's charged
-                    dropStack(getHeadItem())
-                }
-            } else if (entity.type == EntityType.SPECTRAL_ARROW) {
+                dropStack(getHeadItem())
+            }
+        } else {
+            val sourceEntity = source.source ?: return
+
+            if (sourceEntity.type == EntityType.SPECTRAL_ARROW) {
                 if (world.random.nextInt(4) == 0) {
                     dropStack(getHeadItem())
                 }
