@@ -19,7 +19,7 @@ minecraft {
 repositories {
     maven {
         name = "FabricMC"
-        url = "http://maven.fabricmc.net/"
+        url = "https://maven.fabricmc.net/"
     }
 
     mavenCentral()
